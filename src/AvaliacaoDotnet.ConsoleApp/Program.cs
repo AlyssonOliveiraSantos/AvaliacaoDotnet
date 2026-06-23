@@ -1,0 +1,9 @@
+namespace AvaliacaoDotnet.ConsoleApp;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        MainConsole.Run();
+    }
+}

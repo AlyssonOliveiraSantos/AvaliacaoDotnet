@@ -1,26 +1,32 @@
-# Project Empty Template
+# AvaliacaoDotnet
 
-Este é um repositório de exemplo para você começar a desenvolver a questão, leia com atenção os requisitos do enunciado da questão na plataforma e seguia as boas práticas sobre como utilizar este repositório.
+App de console que lê uma base em JSON e gera um arquivo .txt no leiaute escolhido (versão 1 ou 2).
 
+This is a challenge by [Coodesh](https://coodesh.com/).
 
-## Readme do Repositório
+## Stack
 
-- Deve conter o título do projeto
-- Uma descrição sobre o projeto em frase
-- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
-- Como instalar e usar o projeto (instruções)
-- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
-- Se está usando github pessoal, referencie que é um challenge by coodesh:  
+C#, .NET Framework 4.8, Newtonsoft.Json e NUnit nos testes.
 
->  This is a challenge by [Coodesh](https://coodesh.com/)
+## Como o projeto está dividido
 
-## Finalização e Instruções para a Apresentação
+Separei em três projetos: o `Core` com a regra de negócio, o `ConsoleApp` só com o menu, e o `Tests`.
+A parte que muda entre os leiautes fica isolada em geradores (`LayoutV1Generator`, `LayoutV2Generator`)
+escolhidos por uma factory pela versão, então dá pra adicionar um leiaute novo sem mexer nos que já existem.
 
-1. Adicione o link do repositório com a sua solução na questão na plataforma
-2. Verifique se o Readme está bom e faça o commit final em seu repositório;
-3. Envie e aguarde as instruções para seguir. Caso o teste tenha apresentação de vídeo, dentro da tela de entrega será possível gravar após adicionar o link do repositório. Sucesso e boa sorte. =)
+## Rodando
 
+```
+dotnet build
+dotnet run --project src/AvaliacaoDotnet.ConsoleApp
+```
 
-## Suporte
+No menu, a opção 3 gera o arquivo e pergunta a versão do leiaute (1 ou 2). Por padrão ele usa
+`data/base-dados.json`; pra gerar o leiaute 2 use a opção 1 antes e aponte pra `data/base-dados-v2.json`.
+O caminho do .txt gerado aparece no final.
 
-Para tirar dúvidas sobre o processo envie uma mensagem diretamente a um especialista no chat da plataforma. 
+## Testes
+
+```
+dotnet test
+```
